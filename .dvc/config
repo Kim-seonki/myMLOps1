@@ -1,0 +1,5 @@
+[core]
+    remote = mlops_dvc_storage
+['remote "mlops_dvc_storage"']
+    url = gdrive://18OpV3ylRMxf8Y3ET2mRxBOwc9yD6yYqf?hl=ko
+    gdrive_client_secret = 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 --local
