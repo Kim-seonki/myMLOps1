@@ -78,8 +78,7 @@ for params in param_list:
 # accuracy 기준으로 가장 높은 결과를 가진 딕셔너리 반환
 best = max(run_results, key=lambda x: x["accuracy"])
 print(f"🏆 최고 모델: {best['run_name']} | accuracy: {best['accuracy']:.4f}")
-
-
+ 
 # ── 5. Model Registry에 등록 ──────────────────────────────────
 # run URI → Registry로 복사 (버전 자동 부여됨)
 registered = mlflow.register_model(
@@ -87,8 +86,7 @@ registered = mlflow.register_model(
     name="iris_classifier"                                   # Registry에서 사용할 모델 이름
 )
 print(f"✅ 등록 완료! Version: {registered.version}")
-
-'''
+ 
 # ── 6. Production alias 설정 ──────────────────────────────────
 client = MlflowClient()                                      # Registry 조작을 위한 클라이언트
 client.set_registered_model_alias(
@@ -97,4 +95,3 @@ client.set_registered_model_alias(
     version=registered.version                               # 방금 등록된 버전에 alias 연결
 )
 print(f"🚀 production alias → Version {registered.version}")
-'''

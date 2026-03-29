@@ -26,7 +26,8 @@ _, X_test, _, y_test = train_test_split(X, y, test_size=0.2)
 predictions = loaded_model.predict(X_test)             # 테스트 데이터로 예측 수행
 acc = accuracy_score(y_test, predictions)              # 정답과 예측값 비교해서 정확도 계산
 print(f"🎯 Production 모델 정확도: {acc:.4f}")
- 
+
+
 # ── 2. 실험 내 모든 Run 가져오기 ──────────────────────────────
 # 실험 이름으로 실험 객체 조회 (experiment_id를 하드코딩하지 않기 위함)
 experiment = client.get_experiment_by_name("iris_classification")
@@ -38,7 +39,7 @@ runs = client.search_runs(
     experiment_ids=[experiment.experiment_id],         # 위에서 찾은 실험 ID로 필터링
     order_by=["metrics.accuracy DESC"]                 # 정확도 높은 순으로 정렬 → [0]=1위, [1]=2위
 )
- 
+
 # ── 3. run_results 구성 (model_uri 포함) ──────────────────────
 run_results = []                                       # 유효한 run 정보를 담을 빈 리스트
 for run in runs:
@@ -84,7 +85,8 @@ print(f"🚀 Version {second_version} → production!")
 # alias가 실제로 바뀌었는지 확인
 current = client.get_model_version_by_alias("iris_classifier", "production")
 print(f"현재 production: Version {current.version}")
- 
+
+'''
 # ── 6. 롤백 시나리오 ─────────────────────────────────────────
 print(f"\n⚠️  Version {second_version}에서 문제 발생! 롤백합니다...")
  
@@ -110,3 +112,4 @@ print(f"✅ Version {best_version} 으로 롤백 완료!")
 # 롤백 후 현재 production 버전 최종 확인
 current = client.get_model_version_by_alias("iris_classifier", "production")
 print(f"현재 production: Version {current.version}")
+'''

@@ -58,7 +58,7 @@ print(f"🏆 최고 모델: {best['run_name']} | accuracy: {best['accuracy']:.4f
 # 이전 실험에서 가장 좋은 모델 불러오기
 # 여기서는 파이프라인 모델 'pipeline_{'n_estimators': 50, 'max_depth': 2}.pkl'을 사용합니다.
 # (파이프라인이 스케일링을 자동으로 처리하므로 더 간편합니다)
-model_path = best["model_uri"]
+model_path = best[ "model_uri"]
 best_pipeline_model = joblib.load(model_path)
 
 # 예제 데이터 준비 (X_test의 일부 사용)
