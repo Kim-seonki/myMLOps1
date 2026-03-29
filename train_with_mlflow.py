@@ -86,7 +86,7 @@ registered = mlflow.register_model(
     name="iris_classifier"                                   # Registry에서 사용할 모델 이름
 )
 print(f"✅ 등록 완료! Version: {registered.version}")
- 
+
 # ── 6. Production alias 설정 ──────────────────────────────────
 client = MlflowClient()                                      # Registry 조작을 위한 클라이언트
 client.set_registered_model_alias(

@@ -86,7 +86,7 @@ print(f"🚀 Version {second_version} → production!")
 current = client.get_model_version_by_alias("iris_classifier", "production")
 print(f"현재 production: Version {current.version}")
 
-'''
+
 # ── 6. 롤백 시나리오 ─────────────────────────────────────────
 print(f"\n⚠️  Version {second_version}에서 문제 발생! 롤백합니다...")
  
@@ -112,4 +112,3 @@ print(f"✅ Version {best_version} 으로 롤백 완료!")
 # 롤백 후 현재 production 버전 최종 확인
 current = client.get_model_version_by_alias("iris_classifier", "production")
 print(f"현재 production: Version {current.version}")
-'''
